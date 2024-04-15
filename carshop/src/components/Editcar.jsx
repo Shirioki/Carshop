@@ -6,14 +6,25 @@ import { DialogActions } from '@mui/material';
 import { DialogContent } from '@mui/material';
 import { DialogTitle } from '@mui/material';
 
-export default function Addcar(props) {
+export default function Editcar(props) {
     const [open, setOpen] = React.useState(false);
     const [car, setCar] = React.useState({
-        brand: '', model: '', color: '', fuel: '', modelYear: '', price: ''
+        brand: '',
+        model: '',
+        color: '',
+        fuel: '',
+        modelYear: '',
+        price: ''
     })
 
     const handleOpen = () => {
         setOpen(true);
+        setCar({brand: props.car.brand,
+                model: props.car.model,
+                color: props.car.color,
+                fuel: props.car.fuel,
+                modelYear: props.car.modelYear,
+                price: props.car.price })
     };
 
     const handleClose = () => {
@@ -21,18 +32,23 @@ export default function Addcar(props) {
     };
 
     const handleInputChange = (event) => {
-        setCar({...car, [event.target.name]: event.target.value })
+        setCar({ 
+            ...car, 
+            [event.target.name]: event.target.value 
+        });
     }
     
-    const addCar = () => {
-        props.saveCar(car);
+    
+
+    const updateCar = () => {
+        props.updateCar(car, props.params.data._links.car.href);
         handleClose();
     }
     return (
         <div>
-            <Button variant="outlined" color="primary" onClick={handleOpen}>Add Car</Button>
+            <Button color="primary" onClick={handleOpen}>Edit</Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Add a New Car</DialogTitle>
+                <DialogTitle id="form-dialog-title">Edit Car</DialogTitle>
                 <DialogContent>
                     <TextField
                         autoFocus
@@ -91,7 +107,7 @@ export default function Addcar(props) {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={addCar}>Save</Button>
+                    <Button onClick={updateCar}>Edit</Button>
                 </DialogActions>
             </Dialog>
         </div>

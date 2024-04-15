@@ -8,10 +8,10 @@ function App() {
 
   return (
     <div className="App">
-      <AppBar position="static">
+      <AppBar position="static" color=''>
         <Toolbar>
           <Typography variant="h6">
-            CarShop
+            Car Shop
           </Typography>
         </Toolbar>
       </AppBar>
