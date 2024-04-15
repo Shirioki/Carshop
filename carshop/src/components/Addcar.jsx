@@ -9,7 +9,12 @@ import { DialogTitle } from '@mui/material';
 export default function Addcar(props) {
     const [open, setOpen] = React.useState(false);
     const [car, setCar] = React.useState({
-        brand: '', model: '', color: '', fuel: '', modelYear: '', price: ''
+        brand: '',
+        model: '', 
+        color: '', 
+        fuel: '', 
+        modelYear: '', 
+        price: ''
     })
 
     const handleOpen = () => {

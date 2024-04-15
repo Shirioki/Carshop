@@ -32,10 +32,7 @@ export default function Editcar(props) {
     };
 
     const handleInputChange = (event) => {
-        setCar({ 
-            ...car, 
-            [event.target.name]: event.target.value 
-        });
+        setCar({ ...car, [event.target.name]: event.target.value });
     }
     
     
