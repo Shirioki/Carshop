@@ -68,8 +68,9 @@ export default function Carlist() {
             { field: 'fuel', sortable: true, filter: true },
             { field: 'modelYear', sortable: true, filter: true },
             { field: 'price', sortable: true, filter: true },
-            { cellRenderer: (params) => <Editcar updateCar={updateCar} params={params} />, },
-            {
+            { 
+                cellRenderer: (params) => <Editcar car={params.data} updateCar={updateCar} />,
+            },            {
                 cellRenderer: (params) =>
                     <Button size="small" color="error" onClick={() => deleteCar(params)}>Delete</Button>
                 , width: 120
